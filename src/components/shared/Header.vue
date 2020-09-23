@@ -2,28 +2,33 @@
   <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <RouterLink to="/" class="navbar-brand">NapredniVezba</RouterLink>
       </div>
       <ul class="nav navbar-nav">
         <li class="active">
-          <a href="#">Home</a>
+          <RouterLink to="/">Pocetna</RouterLink>
         </li>
         <li>
-          <a href="#">Page 1</a>
+          <RouterLink to="/about">O nama</RouterLink>
         </li>
         <li>
-          <a href="#">Page 2</a>
+          <RouterLink to="/contact">Kontakt</RouterLink>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
+          <RouterLink to="/shoppingcart">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Korpa
+          </RouterLink>
+        </li>
+        <li>
           <a href="#">
-            <span class="glyphicon glyphicon-user"></span> Sign Up
+            <span class="glyphicon glyphicon-user"></span> Registracija
           </a>
         </li>
         <li>
           <a href="#">
-            <span class="glyphicon glyphicon-log-in"></span> Login
+            <span class="glyphicon glyphicon-log-in"></span> Prijava
           </a>
         </li>
       </ul>
@@ -37,5 +42,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+nav {
+  border-radius: 0px;
+}
 </style>

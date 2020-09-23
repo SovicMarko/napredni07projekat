@@ -1,17 +1,13 @@
 <template>
   <div id="app" class="container">
     <Header />
-    <div id="nav">
-      <router-link to="/">Pocetna</router-link>|
-      <router-link to="/about">O nama</router-link>
-    </div>
-
-    <router-view />
+    <RouterView v-bind:products="products" />
   </div>
 </template>
 
 <script>
 import Header from "./components/shared/Header";
+import MY_JSON from "./data/products.json";
 
 export default {
   components: {
@@ -19,8 +15,11 @@ export default {
   },
   data: function () {
     return {
-      ime: "Marko",
+      products: [],
     };
+  },
+  created: function () {
+    this.products = MY_JSON;
   },
 };
 </script>

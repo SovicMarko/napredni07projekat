@@ -1,32 +1,28 @@
 <template>
   <div class="panel panel-primary">
-    <CardHeading v-bind:name="item.name" v-bind:tip="item.tip" />
+    <CardHeading v-bind:name="item.name" v-bind:tip="item.tip" v-bind:id="item.id" />
     <div class="panel-body">
       <img v-bind:src="item.image" />
     </div>
-    <div class="panel-footer">
-      <h3>{{item.price}} din</h3>
-      <h2>{{brojac}}</h2>
-      <button v-on:click="brojac++">Povecaj</button>
-    </div>
+    <CardFooter v-bind:price="item.price" />
   </div>
 </template>
 
 <script>
 import CardHeading from "./cardHeading";
+import CardFooter from "./cardFooter";
 
 export default {
   name: "Card",
   components: {
     CardHeading,
+    CardFooter,
   },
   props: {
     item: Object,
   },
   data: function () {
-    return {
-      brojac: 0,
-    };
+    return {};
   },
 };
 </script>

@@ -1,6 +1,8 @@
 <template>
   <div class="panel-heading" v-bind:style="'background-color: ' + boja">
-    <h4>{{name}}</h4>
+    <RouterLink v-bind:to="'/product/' + id">
+      <h4>{{name}}</h4>
+    </RouterLink>
   </div>
 </template>
 
@@ -10,19 +12,23 @@ export default {
   props: {
     name: String,
     tip: String,
+    id: Number,
   },
   data: function () {
     return {
-      boja: "blue",
+      boja: "#5050a1",
     };
   },
   created: function () {
     if (this.tip == "graficka kartica") {
-      this.boja = "red";
+      this.boja = "#8e3d3d";
     }
   },
 };
 </script>
 
-<style>
+<style scoped>
+a {
+  color: inherit;
+}
 </style>
