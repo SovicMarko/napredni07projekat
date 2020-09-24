@@ -7,6 +7,8 @@ import Contact from '../views/Contact.vue'
 import Cart from '../views/Cart.vue'
 import Product from '../views/Product.vue'
 
+import NewProduct from '../views/Admin/NewProduct.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -34,9 +36,11 @@ const routes = [
     path: '/product/:id',
     name: 'Product',
     component: Product
-    // /product/pera
-    // /product/joca
-    // /product/234324
+  },
+  {
+    path: '/admin/newproduct',
+    name: 'NewProduct',
+    component: NewProduct
   }
 ]
 

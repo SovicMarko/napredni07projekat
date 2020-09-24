@@ -5,7 +5,8 @@
         "name": "AMD Powercolor 4GB AXRX 570 4GBD5, bulk",
         "price": 19490,
         "image": "https://www.winwin.rs/media/catalog/product/420x420/154/31/154317_5efc3eefd3d61.png",
-        "description": "Šifra artikla\t154317<hr>\n                        EAN kod\t4713436172635<hr>\n                        Model\tAXRX 570 4GBD5"
+        "description": "Šifra artikla\t154317<hr>\n                        EAN kod\t4713436172635<hr>\n                        Model\tAXRX 570 4GBD5",
+        "discount": 20
     },
     {
         "id": 3,
@@ -21,7 +22,8 @@
         "name": "GeForce GTX1660Ti ZOTAC GAMING ",
         "price": 37490,
         "image": "https://www.winwin.rs/media/catalog/product/420x420/864/49/8644970.jpg",
-        "description": "Šifra artikla\t146174<hr>\n                        EAN kod\t4895173618000<hr>\n                        Model\tZT-T16610F-10L"
+        "description": "Šifra artikla\t146174<hr>\n                        EAN kod\t4895173618000<hr>\n                        Model\tZT-T16610F-10L",
+        "discount": 15
     },
     {
         "id": 5,
@@ -29,7 +31,8 @@
         "name": "Sapphire PULSE RX 5500 XT 8G ",
         "price": 27000,
         "image": "https://www.winwin.rs/media/catalog/product/420x420/153/50/153504_5edf50a606375.jpg",
-        "description": "Šifra artikla\t153504<hr>\n                        EAN kod\t4895106288133<hr>\n                        Model\t11295-01-20G"
+        "description": "Šifra artikla\t153504<hr>\n                        EAN kod\t4895106288133<hr>\n                        Model\t11295-01-20G",
+        "discount": 10
     },
     {
         "id": 6,

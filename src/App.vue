@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
-    <Header />
-    <RouterView v-bind:products="products" />
+    <Header v-bind:brojac="brojac" />
+    <RouterView v-bind:products="products" v-on:dodato="proba" />
   </div>
 </template>
 
@@ -16,7 +16,13 @@ export default {
   data: function () {
     return {
       products: [],
+      brojac: 0,
     };
+  },
+  methods: {
+    proba: function () {
+      this.brojac++;
+    },
   },
   created: function () {
     this.products = MY_JSON;
@@ -25,7 +31,7 @@ export default {
 </script>
 
 <style>
-#app {
+/* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,6 +49,5 @@ export default {
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
-}
+  color: #42b983; */
 </style>

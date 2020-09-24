@@ -14,11 +14,15 @@
         <li>
           <RouterLink to="/contact">Kontakt</RouterLink>
         </li>
+        <li>
+          <RouterLink to="/admin/newproduct">Unos objave</RouterLink>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
           <RouterLink to="/shoppingcart">
             <span class="glyphicon glyphicon-shopping-cart"></span> Korpa
+            <span class="badge">{{ brojac }}</span>
           </RouterLink>
         </li>
         <li>
@@ -37,8 +41,21 @@
 </template>
 
 <script>
+import { korpa } from "../../main";
+
 export default {
   name: "Header",
+  props: {
+    brojac: Number,
+  },
+  methods: {
+    dodato: function () {
+      alert("AAA");
+    },
+  },
+  created: function () {
+    korpa.$on("dodato", this.dodato);
+  },
 };
 </script>
 

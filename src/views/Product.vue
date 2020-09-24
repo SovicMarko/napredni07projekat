@@ -7,7 +7,10 @@
       </div>
       <div class="col col-md-6">
         <h3 v-html="product.description"></h3>
-        <CardFooter v-bind:price="product.price" />
+        <CardFooter
+          v-bind:price="product.price"
+          v-bind:discount="product.discount"
+        />
       </div>
     </div>
   </div>

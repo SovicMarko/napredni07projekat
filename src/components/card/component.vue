@@ -1,28 +1,44 @@
 <template>
   <div class="panel panel-primary">
-    <CardHeading v-bind:name="item.name" v-bind:tip="item.tip" v-bind:id="item.id" />
-    <div class="panel-body">
-      <img v-bind:src="item.image" />
-    </div>
-    <CardFooter v-bind:price="item.price" />
+    <CardHeading
+      v-bind:name="item.name"
+      v-bind:tip="item.tip"
+      v-bind:id="item.id"
+    />
+    <CardBody v-bind:image="item.image" v-bind:discount="item.discount" />
+    <CardFooter
+      v-bind:price="item.price"
+      v-bind:discount="item.discount"
+      v-on:dodato="proba"
+    />
   </div>
 </template>
 
 <script>
 import CardHeading from "./cardHeading";
+import CardBody from "./cardBody";
 import CardFooter from "./cardFooter";
 
 export default {
   name: "Card",
   components: {
     CardHeading,
+    CardBody,
     CardFooter,
   },
   props: {
     item: Object,
   },
   data: function () {
-    return {};
+    return {
+      brojac: 0,
+    };
+  },
+  methods: {
+    proba: function () {
+      this.brojac++;
+      this.$emit("dodato");
+    },
   },
 };
 </script>
@@ -33,9 +49,5 @@ export default {
 }
 .panel-body {
   height: 300px;
-}
-img {
-  max-width: 100%;
-  max-height: 100%;
 }
 </style>
