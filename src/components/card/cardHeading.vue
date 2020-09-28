@@ -12,7 +12,7 @@ export default {
   props: {
     name: String,
     tip: String,
-    id: Number,
+    id: String,
   },
   data: function () {
     return {};

@@ -7,7 +7,9 @@ import Contact from '../views/Contact.vue'
 import Cart from '../views/Cart.vue'
 import Product from '../views/Product.vue'
 
+// ADMIN STRANICE
 import NewProduct from '../views/Admin/NewProduct.vue'
+import Dashboard from '../views/Admin/Dashboard.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,11 @@ const routes = [
     path: '/admin/newproduct',
     name: 'NewProduct',
     component: NewProduct
+  },
+  {
+    path: '/admin/dashboard',
+    name: 'Dashboard',
+    component: Dashboard
   }
 ]
 

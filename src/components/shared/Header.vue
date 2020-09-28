@@ -17,6 +17,9 @@
         <li>
           <RouterLink to="/admin/newproduct">Unos objave</RouterLink>
         </li>
+        <li>
+          <RouterLink to="/admin/dashboard">Admin</RouterLink>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>

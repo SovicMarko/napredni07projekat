@@ -3,14 +3,10 @@
     <div class="col col-md-offset-1 col-md-6">
       <form>
         <div class="form-group">
-          <label for="id">Id:</label>
-          <input type="text" class="form-control" id="id" v-model="item.id" />
-        </div>
-        <div class="form-group">
           <label for="sel1">Tip proizvoda:</label>
           <select class="form-control" id="sel1" v-model="item.tip">
-            <option>graficka kartica</option>
-            <option>procesor</option>
+            <option value="graficka kartica">graficka kartica</option>
+            <option value="procesor">procesor</option>
           </select>
         </div>
 
@@ -60,7 +56,9 @@
           ></textarea>
         </div>
 
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default" v-on:click="createPost">
+          Submit
+        </button>
       </form>
     </div>
     <div class="col col-md-offset-1 col-md-3">
@@ -71,6 +69,8 @@
 
 <script>
 import Card from "../../components/card/component";
+import db from "../../firebase";
+
 export default {
   name: "NewProduct",
   components: {
@@ -79,7 +79,6 @@ export default {
   data: function () {
     return {
       item: {
-        id: 0,
         tip: "",
         name: "",
         price: 0,
@@ -88,6 +87,28 @@ export default {
         description: "",
       },
     };
+  },
+  methods: {
+    createPost: function () {
+      let self = this;
+
+      db.collection("objave")
+        .doc()
+        .set({
+          tip: self.item.tip,
+          name: self.item.name,
+          image: self.item.image,
+          price: Number(self.item.price),
+          description: self.item.description,
+          discount: Number(self.item.discount),
+        })
+        .then(function () {
+          alert("Objava je uspesno uneta");
+        })
+        .catch(function (error) {
+          console.error("Error writing document: ", error);
+        });
+    },
   },
 };
 </script>

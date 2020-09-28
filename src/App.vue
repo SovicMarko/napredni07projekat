@@ -7,7 +7,8 @@
 
 <script>
 import Header from "./components/shared/Header";
-import MY_JSON from "./data/products.json";
+// import MY_JSON from "./data/products.json";
+import db from "./firebase";
 
 export default {
   components: {
@@ -23,9 +24,35 @@ export default {
     proba: function () {
       this.brojac++;
     },
+    readData: function () {
+      let objave = [];
+      let self = this;
+
+      db.collection("objave")
+        .get()
+        .then(function (querySnapshot) {
+          querySnapshot.forEach(function (doc) {
+            objave.push({
+              id: doc.id,
+              tip: doc.data().tip,
+              name: doc.data().name,
+              image: doc.data().image,
+              price: doc.data().price,
+              description: doc.data().description,
+              discount: doc.data().discount,
+            });
+          });
+          self.products = objave;
+        })
+        .catch(function (error) {
+          console.log("Error getting documents: ", error);
+        });
+    },
   },
   created: function () {
-    this.products = MY_JSON;
+    // this.products = MY_JSON;
+    // db.collection("objave").where("capital", "==", true)
+    this.readData();
   },
 };
 </script>
