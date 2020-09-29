@@ -32,28 +32,26 @@
 </template>
 
 <script>
-import db from "../../firebase";
 import formatPrice from "../../mixins/formatPrice";
 
 export default {
   name: "Dashboard",
-  props: {
-    products: Array,
+  data: function () {
+    return {
+      products: [],
+    };
   },
   methods: {
     deletePost: function (id) {
-      db.collection("objave")
-        .doc(id)
-        .delete()
-        .then(function () {
-          alert("Objava je uspesno obrisana!");
-        })
-        .catch(function (error) {
-          console.error("Error removing document: ", error);
-        });
+      this.$store.dispatch("brisanjeObjave", id);
+      this.products = this.$store.state.objave;
     },
   },
   mixins: [formatPrice],
+  created() {
+    this.$store.dispatch("listaObjava");
+    this.products = this.$store.state.objave;
+  },
 };
 </script>
 

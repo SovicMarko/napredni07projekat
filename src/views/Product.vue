@@ -21,23 +21,27 @@ import CardFooter from "../components/card/cardFooter";
 
 export default {
   name: "Product",
-  props: {
-    products: Array,
-  },
   components: {
     CardFooter,
   },
   data: function () {
     return {
-      product: {},
+      product: {
+        id: "",
+        tip: "",
+        name: "",
+        image: "",
+        price: 0,
+        description: "",
+        discount: 0,
+      },
     };
   },
-  created: function () {
-    this.products.forEach((e) => {
-      if (e.id == this.$route.params.id) {
-        this.product = e;
-      }
-    });
+  created() {
+    this.$store.dispatch("pojedinacnaObjava", this.$route.params.id);
+    setTimeout(() => {
+      window.console.log((this.product = this.$store.state.pojedinacnaObjava));
+    }, 500);
   },
 };
 </script>

@@ -69,7 +69,6 @@
 
 <script>
 import Card from "../../components/card/component";
-import db from "../../firebase";
 
 export default {
   name: "NewProduct",
@@ -91,23 +90,22 @@ export default {
   methods: {
     createPost: function () {
       let self = this;
-
-      db.collection("objave")
-        .doc()
-        .set({
-          tip: self.item.tip,
-          name: self.item.name,
-          image: self.item.image,
-          price: Number(self.item.price),
-          description: self.item.description,
-          discount: Number(self.item.discount),
-        })
-        .then(function () {
-          alert("Objava je uspesno uneta");
-        })
-        .catch(function (error) {
-          console.error("Error writing document: ", error);
-        });
+      this.$store.dispatch("kreiranjeObjave", {
+        tip: self.item.tip,
+        name: self.item.name,
+        image: self.item.image,
+        price: Number(self.item.price),
+        description: self.item.description,
+        discount: Number(self.item.discount),
+      });
+      this.item = {
+        tip: "",
+        name: "",
+        price: 0,
+        discount: 0,
+        image: "",
+        description: "",
+      };
     },
   },
 };
